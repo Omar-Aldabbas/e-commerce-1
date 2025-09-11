@@ -1,0 +1,151 @@
+@import url("https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Spartan", sans-serif;
+}
+
+:root {
+  --headers: #222;
+  --text: #465b52;
+  --bg-nav: #e3e6f3;
+  --text-nav: #1a1a1a;
+  --text-nav-hover: #088178;
+}
+
+body {
+  width: 100%;
+}
+
+h1 {
+  font-size: 3.1rem;
+  line-height: 4rem;
+  color: var(--black);
+}
+
+h2 {
+  font-size: 2.8rem;
+  line-height: 3.37rem;
+  color: var(--black);
+}
+
+h4 {
+  font-size: 1.2rem;
+  color: var(--black);
+}
+
+h6 {
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+p {
+  font-size: 1rem;
+  color: var(--text);
+  margin: 15px 0 20px 0;
+}
+
+.section-p1 {
+  padding: 40px 80px;
+}
+
+.section-m1 {
+  margin: 40px 0;
+}
+
+/* HEADER */
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.1rem 5rem;
+  background-color: var(--bg-nav);
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.06);
+  z-index: 999;
+  position: sticky;
+  top: 0;
+  left: 0;
+}
+
+header > div > ul {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+  /* gap: 1rem; */
+}
+
+header > div > ul  li {
+  padding: 0 1.1rem;
+  position: relative;
+
+}
+
+header > div > ul > li a {
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-nav);
+  transition: 0.3s ease;
+}
+
+header > div > ul > li a:hover,
+header > div > ul > li a:active,
+header > div > ul > li a.active {
+  color: var(--text-nav-hover);
+}
+
+header > div > ul > li a::after {
+  content: '';
+  width: 0; 
+  height: 3px;
+  background: var(--text-nav-hover);
+  position: absolute;
+  bottom: -0.3rem;
+  left: 1.1rem;
+  border-radius: 1rem;
+  transition: width 0.3s ease;
+}
+
+
+header > div > ul > li a:hover::after,
+header > div > ul > li a:active::after,
+header > div > ul > li a.active::after{
+  width: 30%;
+}
+
+#hero {
+  background-image: url('./img/hero4.png');
+  height: 90vh;
+  width: 100%;
+  background-size: cover;
+  background-position: top 25% right 0%;
+  padding: 0 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+#hero h4 {
+  padding-bottom: 1rem;
+}
+
+#hero h1 {
+  color: var(--text-nav-hover);
+}
+
+#hero button {
+  background-image: url("./img/button.png");
+  background-color: transparent;
+  color: var(--text-nav-hover);
+  border: 0;
+  padding: 0.9rem 5rem 0.9rem 4rem;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1rem;
+}
