@@ -2,6 +2,7 @@
 
 const featuresContainer = document.getElementById("feature");
 const productsContainer = document.querySelector(".pro-container");
+const productsContainer2 = document.querySelector(".pro-container2");
 
 // Features
 const featureItems = [
@@ -89,20 +90,30 @@ const renderProducts = async () => {
   `;
   }
   productsContainer.innerHTML = skeletonHTML;
+  productsContainer2.innerHTML = skeletonHTML;
 
   const products = await fetchData("./products.json");
 
   if (!products) {
     productsContainer.innerHTML = `<p style="color:red;">Error loading products. Please try again.</p>`;
+    productsContainer2.innerHTML = `<p style="color:red;">Error loading products. Please try again.</p>`;
     return;
   }
 
   setTimeout(() => {
     productsContainer.innerHTML = "";
+    productsContainer2.innerHTML = "";
 
     const latestProducts = products.slice(0, 8);
     latestProducts.forEach((product) => {
       productsContainer.insertAdjacentHTML(
+        "beforeend",
+        generateProductHTML(product)
+      );
+    });
+    const latestProducts2 = products.slice(8);
+    latestProducts2.forEach((product) => {
+      productsContainer2.insertAdjacentHTML(
         "beforeend",
         generateProductHTML(product)
       );

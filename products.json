@@ -98,7 +98,7 @@
   {
     "id": 7,
     "brand": "Astro Closet",
-    "name": "Grandpa's Rocket",
+    "name": "Flowary Pants",
     "price": 26,
     "stars": 4,
     "img": "./img/products/f7.jpg",
@@ -194,7 +194,7 @@
   {
     "id": 13,
     "brand": "Comet Wear",
-    "name": "Space Hero Tee",
+    "name": "Space Hero Shirt",
     "price": 26,
     "stars": 3,
     "img": "./img/products/n5.jpg",
@@ -210,7 +210,7 @@
   {
     "id": 14,
     "brand": "Astro Style",
-    "name": "Galaxy Grandpa",
+    "name": "NotNormal Short",
     "price": 32,
     "stars": 5,
     "img": "./img/products/n6.jpg",
