@@ -25,6 +25,8 @@
   --text-discount: #ef3636;
   --text-button: black;
   --bg-button: white;
+  --text-samll-banners: #ec544e;
+  --bg-newsletter: #041e42;
 }
 
 body {
@@ -71,7 +73,7 @@ button.normal {
   font-size: 0.9rem;
   font-weight: 600;
   padding: 0.9rem 1.94rem;
-  color: black ;
+  color: var(--text-button);
   background-color: var(--bg-button);
   border-radius: 4px;
   cursor: pointer;
@@ -80,6 +82,17 @@ button.normal {
   transition: 0.2s;
 }
 
+button.white {
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.7rem 1.1rem;
+  color: var(--bg-button);
+  background-color: transparent;
+  cursor: pointer;
+  border: 1px solid var(--bg-button);
+  outline: none;
+  transition: 0.2s;
+}
 
 /* HEADER */
 
@@ -394,10 +407,8 @@ header > div > ul > li a.active::after {
   padding: 0.8rem 0;
 }
 
-
 #banner h2 span {
   color: var(--text-discount);
-
 }
 
 #banner button:hover,
@@ -405,7 +416,6 @@ header > div > ul > li a.active::after {
   background-color: var(--text-nav-hover);
   color: var(--bg-button);
 }
-
 
 /* New Arrivals */
 #products2 {
@@ -488,17 +498,152 @@ header > div > ul > li a.active::after {
 #products2 .pro .cart:active {
   transform: scale(1.05);
 }
+/* Banners  */
+
+#sm-banner {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
 
 #sm-banner .banner-box {
-    display: flex;
+  display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  text-align: center;
-  background-image: url("./img/banner/b2.jpg");
-  width: 100%;
-  height: 40vh;
+  padding: 2rem;
+  background-image: url("./img/banner/b17.jpg");
+  min-width: 36.25rem;
+  height: 50vh;
   background-repeat: none;
   background-position: center;
   background-size: cover;
+}
+
+#sm-banner h4 {
+  color: var(--text-banner);
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+
+#sm-banner h2 {
+  color: var(--text-banner);
+  font-size: 1.8rem;
+  font-weight: 800;
+}
+
+#sm-banner span {
+  color: var(--text-banner);
+  font-size: 0.9rem;
+  font-weight: 400;
+  padding-bottom: 1rem;
+}
+
+#sm-banner .banner-box:hover button {
+  background-color: var(--text-nav-hover);
+  border: 1px solid var(--text-nav-hover);
+}
+
+#sm-banner .banner-box2 {
+  background-image: url("./img/banner/b10.jpg");
+}
+
+#banner3 {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 0 5rem;
+}
+
+#banner3 .banner-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 2rem;
+  background-image: url("./img/banner/b7.jpg");
+  min-width: 30%;
+  height: 30vh;
+  background-repeat: none;
+  background-position: center;
+  background-size: cover;
+  padding: 1.2rem;
+  margin-bottom: 1.2rem;
+}
+
+#banner3 .banner-box h2 {
+  color: var(--bg-button);
+  font-weight: 900;
+  font-size: 1.3rem;
+}
+
+#banner3 .banner-box h3 {
+  color: var(--text-samll-banners);
+  font-weight: 800;
+  font-size: 1rem;
+}
+
+#banner3 .banner-box2 {
+  background-image: url("./img/banner/b4.jpg");
+}
+
+#banner3 .banner-box3 {
+  background-image: url("./img/banner/b18.jpg");
+}
+
+/* newsletter */
+
+#newsletter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  background-image: url("./img/banner/b14.png");
+  background-repeat: no-repeat;
+  background-position: 20% 30%;
+  background-color: var(--bg-newsletter);
+}
+
+#newsletter h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-banner);
+
+}
+
+#newsletter p {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #818ea0;
+  
+}
+ 
+#newsletter p span {
+  color: #ffbd27;
+  
+}
+
+#newsletter .form {
+  display: flex;
+  width: 40%;
+}
+
+#newsletter input {
+  height: 3.125rem;
+  padding: 0 1.25rem;
+  font-size: 0.9rem;
+  width: 100%;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  outline: none;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+#newsletter button {
+  background-color: var(--text-nav-hover);
+  color: var(--text-banner);
+  white-space: nowrap;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
