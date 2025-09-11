@@ -1,0 +1,258 @@
+[
+  {
+    "id": 1,
+    "brand": "Galactic Threads",
+    "name": "Astro Grandpa",
+    "price": 25,
+    "stars": 5,
+    "img": "./img/products/f1.jpg",
+    "variants": [
+      { "size": "S", "color": "red" },
+      { "size": "M", "color": "blue" },
+      { "size": "L", "color": "green" }
+    ],
+    "quantity": 50,
+    "sales": 120,
+    "createdAt": "2025-01-10T10:30:00Z"
+  },
+  {
+    "id": 2,
+    "brand": "Retro Geek",
+    "name": "Space Cadet",
+    "price": 28,
+    "stars": 4,
+    "img": "./img/products/f2.jpg",
+    "variants": [
+      { "size": "S", "color": "yellow" },
+      { "size": "M", "color": "black" },
+      { "size": "L", "color": "white" }
+    ],
+    "quantity": 35,
+    "sales": 75,
+    "createdAt": "2025-02-05T09:00:00Z"
+  },
+  {
+    "id": 3,
+    "brand": "Cartoon Wear",
+    "name": "Alien Adventure",
+    "price": 27,
+    "stars": 5,
+    "img": "./img/products/f3.jpg",
+    "variants": [
+      { "size": "S", "color": "purple" },
+      { "size": "M", "color": "blue" },
+      { "size": "L", "color": "gray" }
+    ],
+    "quantity": 40,
+    "sales": 60,
+    "createdAt": "2025-03-12T15:45:00Z"
+  },
+  {
+    "id": 4,
+    "brand": "Pixel Planet",
+    "name": "Old School Hero",
+    "price": 22,
+    "stars": 3,
+    "img": "./img/products/f4.jpg",
+    "variants": [
+      { "size": "S", "color": "green" },
+      { "size": "M", "color": "blue" },
+      { "size": "L", "color": "red" }
+    ],
+    "quantity": 60,
+    "sales": 45,
+    "createdAt": "2025-04-01T12:00:00Z"
+  },
+  {
+    "id": 5,
+    "brand": "Toon Threads",
+    "name": "Time Traveler",
+    "price": 30,
+    "stars": 4,
+    "img": "./img/products/f5.jpg",
+    "variants": [
+      { "size": "S", "color": "orange" },
+      { "size": "M", "color": "black" },
+      { "size": "L", "color": "white" }
+    ],
+    "quantity": 25,
+    "sales": 80,
+    "createdAt": "2025-05-20T11:20:00Z"
+  },
+  {
+    "id": 6,
+    "brand": "Retro Geek",
+    "name": "Cartoon Villain",
+    "price": 28,
+    "stars": 5,
+    "img": "./img/products/f6.jpg",
+    "variants": [
+      { "size": "S", "color": "black" },
+      { "size": "M", "color": "red" },
+      { "size": "L", "color": "blue" }
+    ],
+    "quantity": 30,
+    "sales": 90,
+    "createdAt": "2025-06-08T16:10:00Z"
+  },
+  {
+    "id": 7,
+    "brand": "Astro Closet",
+    "name": "Grandpa's Rocket",
+    "price": 26,
+    "stars": 4,
+    "img": "./img/products/f7.jpg",
+    "variants": [
+      { "size": "S", "color": "blue" },
+      { "size": "M", "color": "green" },
+      { "size": "L", "color": "yellow" }
+    ],
+    "quantity": 40,
+    "sales": 55,
+    "createdAt": "2025-07-15T14:30:00Z"
+  },
+  {
+    "id": 8,
+    "brand": "SpaceTime Apparel",
+    "name": "Ben-ish Cartoon",
+    "price": 32,
+    "stars": 3,
+    "img": "./img/products/f8.jpg",
+    "variants": [
+      { "size": "S", "color": "white" },
+      { "size": "M", "color": "black" },
+      { "size": "L", "color": "red" }
+    ],
+    "quantity": 45,
+    "sales": 70,
+    "createdAt": "2025-08-10T10:50:00Z"
+  },
+  {
+    "id": 9,
+    "brand": "Nova Threads",
+    "name": "Galaxy Explorer",
+    "price": 29,
+    "stars": 5,
+    "img": "./img/products/n1.jpg",
+    "variants": [
+      { "size": "S", "color": "blue" },
+      { "size": "M", "color": "green" },
+      { "size": "L", "color": "red" }
+    ],
+    "quantity": 35,
+    "sales": 65,
+    "createdAt": "2025-09-01T12:00:00Z"
+  },
+  {
+    "id": 10,
+    "brand": "Orbit Apparel",
+    "name": "Star Voyager",
+    "price": 31,
+    "stars": 4,
+    "img": "./img/products/n2.jpg",
+    "variants": [
+      { "size": "S", "color": "black" },
+      { "size": "M", "color": "white" },
+      { "size": "L", "color": "purple" }
+    ],
+    "quantity": 40,
+    "sales": 50,
+    "createdAt": "2025-09-05T14:20:00Z"
+  },
+  {
+    "id": 11,
+    "brand": "Cosmo Gear",
+    "name": "Rocket Rider",
+    "price": 27,
+    "stars": 5,
+    "img": "./img/products/n3.jpg",
+    "variants": [
+      { "size": "S", "color": "red" },
+      { "size": "M", "color": "yellow" },
+      { "size": "L", "color": "blue" }
+    ],
+    "quantity": 30,
+    "sales": 70,
+    "createdAt": "2025-09-10T16:00:00Z"
+  },
+  {
+    "id": 12,
+    "brand": "Star Threads",
+    "name": "Alien Collector",
+    "price": 28,
+    "stars": 4,
+    "img": "./img/products/n4.jpg",
+    "variants": [
+      { "size": "S", "color": "orange" },
+      { "size": "M", "color": "green" },
+      { "size": "L", "color": "blue" }
+    ],
+    "quantity": 45,
+    "sales": 60,
+    "createdAt": "2025-09-15T09:30:00Z"
+  },
+  {
+    "id": 13,
+    "brand": "Comet Wear",
+    "name": "Space Hero Tee",
+    "price": 26,
+    "stars": 3,
+    "img": "./img/products/n5.jpg",
+    "variants": [
+      { "size": "S", "color": "white" },
+      { "size": "M", "color": "black" },
+      { "size": "L", "color": "red" }
+    ],
+    "quantity": 50,
+    "sales": 55,
+    "createdAt": "2025-09-20T11:45:00Z"
+  },
+  {
+    "id": 14,
+    "brand": "Astro Style",
+    "name": "Galaxy Grandpa",
+    "price": 32,
+    "stars": 5,
+    "img": "./img/products/n6.jpg",
+    "variants": [
+      { "size": "S", "color": "green" },
+      { "size": "M", "color": "blue" },
+      { "size": "L", "color": "yellow" }
+    ],
+    "quantity": 40,
+    "sales": 85,
+    "createdAt": "2025-09-25T10:10:00Z"
+  },
+  {
+    "id": 15,
+    "brand": "Orbit Threads",
+    "name": "Cosmic Tee",
+    "price": 29,
+    "stars": 4,
+    "img": "./img/products/n7.jpg",
+    "variants": [
+      { "size": "S", "color": "purple" },
+      { "size": "M", "color": "black" },
+      { "size": "L", "color": "white" }
+    ],
+    "quantity": 35,
+    "sales": 65,
+    "createdAt": "2025-09-28T12:20:00Z"
+  },
+  {
+    "id": 16,
+    "brand": "Galaxy Outfit",
+    "name": "Retro Space Tee",
+    "price": 31,
+    "stars": 5,
+    "img": "./img/products/n8.jpg",
+    "variants": [
+      { "size": "S", "color": "red" },
+      { "size": "M", "color": "blue" },
+      { "size": "L", "color": "green" }
+    ],
+    "quantity": 50,
+    "sales": 90,
+    "createdAt": "2025-09-30T14:00:00Z"
+  }
+]
