@@ -7,6 +7,7 @@ const shopContainer = document.querySelector(".shop-container");
 const bar = document.getElementById("bar");
 const navbar = document.getElementById("navbar");
 const closeBtn = document.getElementById("close");
+const paginationEl = document.getElementById("pagination");
 
 console.log(shopContainer);
 // Features
@@ -226,17 +227,17 @@ const renderShopWithPagination = async () => {
     });
 
     const totalPages = Math.ceil(shopProducts.length / productsPerPage);
-    let paginationHTML = `<div class="pagination">
-<span class="page-info">${currentPage} of ${totalPages}</span>
-  <button class="prev" ${currentPage === 1 ? "disabled" : ""}>
-    <i class="fas fa-chevron-left"></i>
-  </button>
-  <button class="next" ${currentPage === totalPages ? "disabled" : ""}>
-    <i class="fas fa-chevron-right"></i>
-  </button>
-</div>`;
-
-    let paginationEl = document.querySelector(".pagination");
+    let paginationHTML = `
+      <div class="pagination">
+      <span class="page-info">${currentPage} of ${totalPages}</span>
+        <button class="prev" ${currentPage === 1 ? "disabled" : ""}>
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="next" ${currentPage === totalPages ? "disabled" : ""}>
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+      `;
     if (!paginationEl) {
       shopContainer.insertAdjacentHTML("afterend", paginationHTML);
       paginationEl = document.querySelector(".pagination");
@@ -244,24 +245,18 @@ const renderShopWithPagination = async () => {
       paginationEl.innerHTML = paginationHTML;
     }
 
-    paginationEl.querySelectorAll(".page-btn").forEach((btn) => {
-      btn.addEventListener("click", () => {
-        currentPage = Number(btn.dataset.page);
+    paginationEl.addEventListener("click", (e) => {
+      if (e.target.closest(".page-btn")) {
+        currentPage = Number(e.target.closest(".page-btn").dataset.page);
         renderShopWithPagination();
-      });
-    });
-    const prevBtn = paginationEl.querySelector(".prev");
-    if (prevBtn)
-      prevBtn.addEventListener("click", () => {
+      } else if (e.target.closest(".prev") && currentPage > 1) {
         currentPage--;
         renderShopWithPagination();
-      });
-    const nextBtn = paginationEl.querySelector(".next");
-    if (nextBtn)
-      nextBtn.addEventListener("click", () => {
+      } else if (e.target.closest(".next") && currentPage < totalPages) {
         currentPage++;
         renderShopWithPagination();
-      });
+      }
+    });
   } catch (err) {
     if (shopContainer)
       shopContainer.innerHTML = `<p style="color:red;">${err}</p>`;
