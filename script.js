@@ -176,11 +176,12 @@ if (closeBtn) {
 }
 
 // Fake Pagenation
-const renderShopWithPagination = async () => {
-  const productsPerPage = 12;
-  let currentPage = 1;
-  let shopProducts = [];
 
+const productsPerPage = 12;
+let currentPage = 1;
+let shopProducts = [];
+
+const renderShopWithPagination = async () => {
   try {
     if (!shopContainer) return;
     shopContainer.innerHTML = Array(productsPerPage)
@@ -227,7 +228,8 @@ const renderShopWithPagination = async () => {
     });
 
     const totalPages = Math.ceil(shopProducts.length / productsPerPage);
-    let paginationHTML = `
+    const renderPagenation = () => {
+      let paginationHTML = `
       <div class="pagination">
       <span class="page-info">${currentPage} of ${totalPages}</span>
         <button class="prev" ${currentPage === 1 ? "disabled" : ""}>
@@ -238,22 +240,27 @@ const renderShopWithPagination = async () => {
         </button>
       </div>
       `;
-    if (!paginationEl) {
-      shopContainer.insertAdjacentHTML("afterend", paginationHTML);
-      paginationEl = document.querySelector(".pagination");
-    } else {
-      paginationEl.innerHTML = paginationHTML;
-    }
+      if (!paginationEl) {
+        shopContainer.insertAdjacentHTML("afterend", paginationHTML);
+      } else {
+        paginationEl.innerHTML = paginationHTML;
+      }
+    };
+
+    renderPagenation();
 
     paginationEl.addEventListener("click", (e) => {
       if (e.target.closest(".page-btn")) {
         currentPage = Number(e.target.closest(".page-btn").dataset.page);
+        // renderPagenation();
         renderShopWithPagination();
       } else if (e.target.closest(".prev") && currentPage > 1) {
         currentPage--;
+        // renderPagenation();
         renderShopWithPagination();
       } else if (e.target.closest(".next") && currentPage < totalPages) {
         currentPage++;
+        // renderPagenation();
         renderShopWithPagination();
       }
     });

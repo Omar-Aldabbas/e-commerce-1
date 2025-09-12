@@ -7,6 +7,10 @@
   font-family: "Spartan", sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
   --headers: #222;
   --text: #465b52;
