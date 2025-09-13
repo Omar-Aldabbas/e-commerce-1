@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+
+    <title>Document</title>
+    <script defer src="handlers.js"></script>
+    <script defer src="product.js"></script>
+  </head>
+  <body>
+    <!-- HEADER -->
+
+    <header>
+      <a href="#"><img src="./img/logo.png" alt="Caia Logo" /></a>
+
+      <ul id="navbar">
+        <li>
+          <a href="#" id="close"><i class="fa fa-times"></i></a>
+        </li>
+        <li><a href="index.html">Home</a></li>
+        <li><a class="active" href="shop.html">Shop</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">contact</a></li>
+        <li>
+          <a href="cart.html">
+            <i class="fa-solid fa-bag-shopping"></i>
+          </a>
+        </li>
+      </ul>
+      <div id="mobile">
+        <a href="cart.html">
+          <i class="fa-solid fa-bag-shopping"></i>
+        </a>
+        <i id="bar" class="fas fa-outdent"></i>
+      </div>
+    </header>
+    <!-- MAIN -->
+    <main>
+      <section id="product-details" class="section-p1">
+        <!-- JS insert -->
+      </section>
+
+      <section id="newsletter" class="section-p1 section-m1">
+        <div class="newText">
+          <h4>Sign Up For Newsletters</h4>
+          <p>
+            Get E-mail updates about our new products and
+            <span>special offers.</span>
+          </p>
+        </div>
+        <div class="form">
+          <input type="text" placeholder="Your E-mail Address" />
+          <button class="normal">Sign Up</button>
+        </div>
+      </section>
+
+      <footer class="section-p1">
+        <div class="column">
+          <img class="logo" src="./img/logo.png" alt="CAia logo" />
+          <h4>Contact</h4>
+          <p><strong>Address:</strong> 123 Amman Street, Amman, Jordan</p>
+          <p><strong>Phone:</strong> +962 79 123 4567</p>
+          <p><strong>Hours:</strong> Mon-Sat 9:00 AM - 5:00 PM, Fri Closed</p>
+          <div class="follow">
+            <h4>Follow Us</h4>
+            <div class="icon">
+              <i class="fab fa-facebook-f"></i>
+              <i class="fab fa-twitter"></i>
+              <i class="fab fa-instagram"></i>
+              <i class="fab fa-pinterest-p"></i>
+              <i class="fab fa-youtube"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="column">
+          <h4>About</h4>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Delivery Information</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="column">
+          <h4>My Account</h4>
+          <ul>
+            <li><a href="#">Sign In</a></li>
+            <li><a href="#">View Cart</a></li>
+            <li><a href="#">My Wishlist</a></li>
+            <li><a href="#">Track My Order</a></li>
+            <li><a href="#">Help</a></li>
+          </ul>
+        </div>
+
+        <div class="column install">
+          <h4>Install App</h4>
+          <p>From App Store OR Google Play</p>
+          <div class="row">
+            <img src="./img/pay/app.jpg" alt="App store" />
+            <img src="./img/pay/play.jpg" alt="Google store" />
+          </div>
+          <p>Secure Payment GateWays</p>
+          <img src="./img/pay/pay.png" alt="payment methods" />
+        </div>
+
+        <div class="copywrite">
+          <p>&copy; 2025 Caia. All Rights Reserved. | Made with ❤️ in Jordan</p>
+        </div>
+      </footer>
+    </main>
+    <!-- FOOTER -->
+  </body>
+</html>

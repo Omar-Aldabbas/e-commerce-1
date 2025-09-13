@@ -7,7 +7,8 @@ const shopContainer = document.querySelector(".shop-container");
 const bar = document.getElementById("bar");
 const navbar = document.getElementById("navbar");
 const closeBtn = document.getElementById("close");
-const paginationEl = document.getElementById("pagination");
+const cartBtn = document.querySelector(".fa-shopping-cart.cart");
+// const paginationEl = document.getElementById("pagination");
 
 console.log(shopContainer);
 // Features
@@ -55,31 +56,45 @@ const generateStars = (stars) => {
 const generateProductHTML = (product) => {
   return `
           <div class="pro">
-            <img src="${product.img}" alt="${product.name}">
-            <div class="des">
-              <span>${product.brand}</span>
-              <h5>${product.name}</h5>
-              <div class="star">
-                ${generateStars(product.stars)}
+            <a class="product-link" href="product.html?id=${product.id}">
+              <img src="${product.img}" alt="${product.name}">
+              <div class="des">
+                <span>${product.brand}</span>
+                <h5>${product.name}</h5>
+                <div class="star">
+                  ${generateStars(product.stars)}
+                </div>
+                <h4>$${product.price}</h4>
               </div>
-              <h4>$${product.price}</h4>
-            </div>
-            <a href=""><i class="fa fa-shopping-cart cart"></i></a>
+            <a/>
+              <a href=""><i class="fa fa-shopping-cart cart"></i></a>
           </div>
   `;
+
 };
 
-const fetchData = async (url) => {
-  try {
-    const res = await fetch(url);
-    if (!res.ok) throw new Error(`HTTP error! Status: ${res.status || "404"}`);
-    const data = await res.json();
-    return data;
-  } catch (err) {
-    console.error("Error fetching products:", err || "No Data");
-    return null;
-  }
-};
+// cart icon 
+
+cartBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  addToCart(product); 
+});
+
+
+
+// Moved to handlers.js to make a global script
+
+//   const fetchData = async (url) => {
+//   try {
+//     const res = await fetch(url);
+//     if (!res.ok) throw new Error(`HTTP error! Status: ${res.status || "404"}`);
+//     const data = await res.json();
+//     return data;
+//   } catch (err) {
+//     console.error("Error fetching products:", err || "No Data");
+//     return null;
+//   }
+// };
 
 const renderProducts = async () => {
   let skeletonHTML = "";
@@ -101,7 +116,7 @@ const renderProducts = async () => {
   if (productsContainer2) productsContainer2.innerHTML = skeletonHTML;
   // if (shopContainer) shopContainer.innerHTML = skeletonHTML;
 
-  const products = await fetchData("./products.json");
+  const products = await fetchData("./data/products.json");
 
   if (!products) {
     if (productsContainer)
@@ -180,10 +195,12 @@ if (closeBtn) {
 const productsPerPage = 12;
 let currentPage = 1;
 let shopProducts = [];
+let paginationEl = null;
 
 const renderShopWithPagination = async () => {
   try {
     if (!shopContainer) return;
+
     shopContainer.innerHTML = Array(productsPerPage)
       .fill(0)
       .map(
@@ -204,7 +221,7 @@ const renderShopWithPagination = async () => {
     const res = await new Promise((resolve, reject) => {
       setTimeout(async () => {
         try {
-          const data = await fetch("./products.json");
+          const data = await fetch("./data/products.json");
           if (!data.ok) throw new Error("Failed to fetch products");
           resolve(await data.json());
         } catch (err) {
@@ -228,41 +245,46 @@ const renderShopWithPagination = async () => {
     });
 
     const totalPages = Math.ceil(shopProducts.length / productsPerPage);
-    const renderPagenation = () => {
-      let paginationHTML = `
-      <div class="pagination">
-      <span class="page-info">${currentPage} of ${totalPages}</span>
-        <button class="prev" ${currentPage === 1 ? "disabled" : ""}>
-          <i class="fas fa-chevron-left"></i>
-        </button>
-        <button class="next" ${currentPage === totalPages ? "disabled" : ""}>
-          <i class="fas fa-chevron-right"></i>
-        </button>
-      </div>
+
+    const renderPagination = () => {
+      const paginationHTML = `
+        <div class="pagination">
+          <span class="page-info">${currentPage} of ${totalPages}</span>
+          <button class="prev" ${
+            currentPage === 1 ? "disabled" : ""
+          }>
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <button class="next" ${
+            currentPage === totalPages ? "disabled" : ""
+          }>
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
       `;
+
       if (!paginationEl) {
         shopContainer.insertAdjacentHTML("afterend", paginationHTML);
       } else {
-        paginationEl.innerHTML = paginationHTML;
+        paginationEl.outerHTML = paginationHTML;
       }
+      paginationEl = document.querySelector(".pagination");
     };
 
-    renderPagenation();
+    renderPagination();
 
     paginationEl.addEventListener("click", (e) => {
-      if (e.target.closest(".page-btn")) {
-        currentPage = Number(e.target.closest(".page-btn").dataset.page);
-        // renderPagenation();
-        renderShopWithPagination();
-      } else if (e.target.closest(".prev") && currentPage > 1) {
+      const btn = e.target.closest("button");
+      if (!btn || btn.disabled) return;
+
+      if (btn.classList.contains("prev") && currentPage > 1) {
         currentPage--;
-        // renderPagenation();
         renderShopWithPagination();
-      } else if (e.target.closest(".next") && currentPage < totalPages) {
+      } else if (btn.classList.contains("next") && currentPage < totalPages) {
         currentPage++;
-        // renderPagenation();
         renderShopWithPagination();
       }
+      shopContainer.scrollIntoView({ behavior: "smooth", block: "start" });
     });
   } catch (err) {
     if (shopContainer)
@@ -271,3 +293,16 @@ const renderShopWithPagination = async () => {
 };
 
 renderShopWithPagination();
+
+// smooth scrollto
+
+// document.querySelectorAll(".goto").forEach((btn) => {
+//   btn.onclick = () => {
+//     if (btn.disabled) return;
+
+//     const target = document.getElementById(btn.dataset.target);
+//     if (!target) return;
+
+//     target.scrollIntoView({ behavior: "smooth", block: "start" });
+//   };
+// });
