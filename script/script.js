@@ -10,7 +10,7 @@ const closeBtn = document.getElementById("close");
 const cartBtn = document.querySelector(".fa-shopping-cart.cart");
 // const paginationEl = document.getElementById("pagination");
 
-console.log(shopContainer);
+// console.log(shopContainer);
 // Features
 const featureItems = [
   { idx: 1, text: "free shipping", bgColor: "fddde4" },
@@ -72,29 +72,6 @@ const generateProductHTML = (product) => {
   `;
 
 };
-
-// cart icon 
-
-cartBtn.addEventListener("click", (e) => {
-  e.preventDefault();
-  addToCart(product); 
-});
-
-
-
-// Moved to handlers.js to make a global script
-
-//   const fetchData = async (url) => {
-//   try {
-//     const res = await fetch(url);
-//     if (!res.ok) throw new Error(`HTTP error! Status: ${res.status || "404"}`);
-//     const data = await res.json();
-//     return data;
-//   } catch (err) {
-//     console.error("Error fetching products:", err || "No Data");
-//     return null;
-//   }
-// };
 
 const renderProducts = async () => {
   let skeletonHTML = "";
@@ -294,15 +271,22 @@ const renderShopWithPagination = async () => {
 
 renderShopWithPagination();
 
-// smooth scrollto
 
-// document.querySelectorAll(".goto").forEach((btn) => {
-//   btn.onclick = () => {
-//     if (btn.disabled) return;
+const handleAddToCartClick = (e) => {
+  const cartIcon = e.target.closest(".fa-shopping-cart.cart");
+  if (!cartIcon) return;
 
-//     const target = document.getElementById(btn.dataset.target);
-//     if (!target) return;
+  e.preventDefault();
 
-//     target.scrollIntoView({ behavior: "smooth", block: "start" });
-//   };
-// });
+  const productEl = cartIcon.closest(".pro");
+  const productId = Number(productEl.querySelector(".product-link").href.split("id=")[1]);
+  const product = shopProducts.find((p) => p.id === productId);
+
+  if (product) {
+    addToCart(product);
+  }
+};
+
+if (productsContainer) productsContainer.addEventListener("click", handleAddToCartClick);
+if (productsContainer2) productsContainer2.addEventListener("click", handleAddToCartClick);
+if (shopContainer) shopContainer.addEventListener("click", handleAddToCartClick);
